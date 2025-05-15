@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import AddCoffee from "./components/AddCoffee";
 import UpdateCoffee from "./components/UpdateCoffee";
 import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path:'/sign-in',
                 Component: SignIn
+            },
+            {
+                path: '/sign-up',
+                Component: SignUp
             }
         ]
     },
