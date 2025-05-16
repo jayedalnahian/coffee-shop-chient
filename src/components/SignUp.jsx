@@ -15,7 +15,7 @@ const SignUp = () => {
 
         console.log({ email, ...userProfileInfo });
 
-        const userInfo = { email, ...userProfileInfo };
+
 
 
 
@@ -27,6 +27,12 @@ const SignUp = () => {
         createUser(email, password)
             .then((userCredential) => {
                 // Signed up 
+                const userInfo = {
+                    email,
+                    ...userProfileInfo,
+                    creationTime: userCredential.user?.metadata?.creationTime,
+                    lastSignInTime: userCredential.user?.metadata?.lastSignInTime,
+                };
                 const user = userCredential.user;
                 if (user.uid) {
 
@@ -105,7 +111,7 @@ const SignUp = () => {
 
 
     return (
-        <div className="bg-base-100 py-10 px-5 border rounded shadow-2xl w-6/12 flex flex-col justify-center items-center mx-auto my-50">
+        <div className="bg-base-100 w-fit py-10 px-5 border rounded shadow-2xl flex flex-col justify-center items-center mx-auto my-50">
 
             <h2 className='text-4xl font-bold pb-4'>Sing Up now!</h2>
             <form onSubmit={handleSignUp} className="flex flex-col gap-2 *:w-full w-xl">
